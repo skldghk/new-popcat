@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>Click Tracker</title>
+  <script src="/socket.io/socket.io.js"></script>
+  <script>
+    const socket = io();
+
+    document.addEventListener('DOMContentLoaded', function() {
+      const button = document.getElementById('clickButton');
+      button.addEventListener('click', function() {
+        socket.emit('click', { classId: '1학년 1반', newCount: 1 });
+      });
+
+      socket.on('clickUpdate', function(data) {
+        console.log('Click count updated:', data);
+        // 클라이언트 측에서 데이터를 DOM에 표시하는 코드를 추가
+      });
+    });
+  </script>
+</head>
+<body>
+  <button id="clickButton">Click me!</button>
+</body>
+</html>
