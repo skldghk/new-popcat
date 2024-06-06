@@ -32,22 +32,22 @@ export default function Home() {
   const [rankings, setRankings] = useState(generateInitialRankings());
   const [isKeyPressed, setIsKeyPressed] = useState(false);
 
+  const fetchRankings = async () => {
+    try {
+      const response = await axios.get('/api/getClicks');
+      const storedRankings = response.data.data;
+      const updatedRankings = generateInitialRankings().map((ranking) => {
+        const storedRanking = storedRankings.find((r) => r.class === ranking.class);
+        return storedRanking ? { ...ranking, clickCount: storedRanking.clickCount } : ranking;
+      });
+      updatedRankings.sort((a, b) => b.clickCount - a.clickCount);
+      setRankings(updatedRankings);
+    } catch (error) {
+      console.error('Error fetching rankings:', error);
+    }
+  };
+
   useEffect(() => {
-    const fetchRankings = async () => {
-      try {
-        const response = await axios.get('/api/getClicks');
-        const storedRankings = response.data.data;
-        console.log("초기화 후 가져온 데이터:", storedRankings);
-        const updatedRankings = generateInitialRankings().map((ranking) => {
-          const storedRanking = storedRankings.find((r) => r.class === ranking.class);
-          return storedRanking ? { ...ranking, clickCount: storedRanking.clickCount } : ranking;
-        });
-        updatedRankings.sort((a, b) => b.clickCount - a.clickCount);
-        setRankings(updatedRankings);
-      } catch (error) {
-        console.error('Error fetching rankings:', error);
-      }
-    };
     fetchRankings();
   }, []);
 
@@ -104,7 +104,7 @@ export default function Home() {
 
   useEffect(() => {
     const handleKeyDown = (event) => {
-      if (!isKeyPressed) {
+      if (!isKeyPressed && grade && selectedClass) {
         handleButtonClick();
         setIsKeyPressed(true);
       }

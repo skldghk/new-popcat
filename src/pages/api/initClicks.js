@@ -2,30 +2,28 @@ import pool from '../../utils/db';
 
 export default async function handler(req, res) {
   if (req.method === 'POST') {
-    const initialRankings = [];
-    for (let grade = 1; grade <= 6; grade++) {
-      for (let classNumber = 1; classNumber <= (grade < 5 ? 5 : 6); classNumber++) {
-        initialRankings.push(`${grade}학년 ${classNumber}반`);
-      }
-    }
-
     try {
-      console.log("테이블 초기화 시작");
+      // Clicks 테이블 초기화
       await pool.query('TRUNCATE TABLE Clicks');
-      console.log("테이블이 초기화되었습니다.");
-
-      console.log("데이터 삽입 시작");
-      await Promise.all(
-        initialRankings.map(classId =>
-          pool.query('INSERT INTO Clicks (class, clickCount) VALUES (?, 0)', [classId])
-        )
-      );
-      console.log("초기화된 데이터가 삽입되었습니다.");
-
-      res.status(200).json({ message: '클릭 데이터가 초기화되었습니다.' });
+      await pool.query(`
+        INSERT INTO Clicks (class, clickCount) VALUES
+        ('1학년 1반', 0), ('1학년 2반', 0), ('1학년 3반', 0),
+        ('1학년 4반', 0), ('1학년 5반', 0),
+        ('2학년 1반', 0), ('2학년 2반', 0), ('2학년 3반', 0),
+        ('2학년 4반', 0), ('2학년 5반', 0),
+        ('3학년 1반', 0), ('3학년 2반', 0), ('3학년 3반', 0),
+        ('3학년 4반', 0), ('3학년 5반', 0),
+        ('4학년 1반', 0), ('4학년 2반', 0), ('4학년 3반', 0),
+        ('4학년 4반', 0), ('4학년 5반', 0),
+        ('5학년 1반', 0), ('5학년 2반', 0), ('5학년 3반', 0),
+        ('5학년 4반', 0), ('5학년 5반', 0), ('5학년 6반', 0),
+        ('6학년 1반', 0), ('6학년 2반', 0), ('6학년 3반', 0),
+        ('6학년 4반', 0), ('6학년 5반', 0), ('6학년 6반', 0)
+      `);
+      res.status(200).json({ message: '데이터베이스 초기화가 완료되었습니다.' });
     } catch (error) {
-      console.error('클릭 데이터 초기화 중 에러 발생:', error);
-      res.status(500).json({ error: '클릭 데이터 초기화 중 에러 발생' });
+      console.error('데이터베이스 초기화 중 에러 발생:', error);
+      res.status(500).json({ error: '데이터베이스 초기화 중 에러 발생' });
     }
   } else {
     res.status(405).json({ error: 'Method not allowed' });

@@ -1,1 +1,7 @@
-{"/_app":"pages/_app.js","/api/click":"pages/api/click.js","/api/getClicks":"pages/api/getClicks.js","/api/initClicks":"pages/api/initClicks.js","/api/saveClicks":"pages/api/saveClicks.js","/api/users":"pages/api/users.js","/_error":"pages/_error.js","/_document":"pages/_document.js","/404":"pages/404.html"}
+{
+  "/_app": "pages/_app.js",
+  "/_error": "pages/_error.js",
+  "/_document": "pages/_document.js",
+  "/api/getClicks": "pages/api/getClicks.js",
+  "/api/saveClicks": "pages/api/saveClicks.js"
+}
