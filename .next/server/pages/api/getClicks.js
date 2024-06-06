@@ -13,16 +13,6 @@ exports.id = "pages/api/getClicks";
 exports.ids = ["pages/api/getClicks"];
 exports.modules = {
 
-/***/ "mysql2/promise":
-/*!*********************************!*\
-  !*** external "mysql2/promise" ***!
-  \*********************************/
-/***/ ((module) => {
-
-module.exports = require("mysql2/promise");
-
-/***/ }),
-
 /***/ "next/dist/compiled/next-server/pages-api.runtime.dev.js":
 /*!**************************************************************************!*\
   !*** external "next/dist/compiled/next-server/pages-api.runtime.dev.js" ***!
@@ -49,17 +39,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
   \************************************/
 /***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ handler)\n/* harmony export */ });\n/* harmony import */ var _utils_db__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../utils/db */ \"(api)/./src/utils/db.js\");\n\nasync function handler(req, res) {\n    try {\n        const [rows] = await _utils_db__WEBPACK_IMPORTED_MODULE_0__[\"default\"].query(\"SELECT * FROM Clicks ORDER BY clickCount DESC\");\n        res.status(200).json({\n            data: rows\n        });\n    } catch (error) {\n        console.error(\"클릭 데이터 조회 중 에러 발생:\", error);\n        res.status(500).json({\n            error: \"클릭 데이터 조회 중 에러 발생\"\n        });\n    }\n}\n//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiKGFwaSkvLi9zcmMvcGFnZXMvYXBpL2dldENsaWNrcy5qcyIsIm1hcHBpbmdzIjoiOzs7OztBQUFrQztBQUVuQixlQUFlQyxRQUFRQyxHQUFHLEVBQUVDLEdBQUc7SUFDNUMsSUFBSTtRQUNGLE1BQU0sQ0FBQ0MsS0FBSyxHQUFHLE1BQU1KLGlEQUFJQSxDQUFDSyxLQUFLLENBQUM7UUFDaENGLElBQUlHLE1BQU0sQ0FBQyxLQUFLQyxJQUFJLENBQUM7WUFBRUMsTUFBTUo7UUFBSztJQUNwQyxFQUFFLE9BQU9LLE9BQU87UUFDZEMsUUFBUUQsS0FBSyxDQUFDLHNCQUFzQkE7UUFDcENOLElBQUlHLE1BQU0sQ0FBQyxLQUFLQyxJQUFJLENBQUM7WUFBRUUsT0FBTztRQUFvQjtJQUNwRDtBQUNGIiwic291cmNlcyI6WyJ3ZWJwYWNrOi8vbmV3LXBvcGNhdC8uL3NyYy9wYWdlcy9hcGkvZ2V0Q2xpY2tzLmpzPzVhZjUiXSwic291cmNlc0NvbnRlbnQiOlsiaW1wb3J0IHBvb2wgZnJvbSAnLi4vLi4vdXRpbHMvZGInO1xyXG5cclxuZXhwb3J0IGRlZmF1bHQgYXN5bmMgZnVuY3Rpb24gaGFuZGxlcihyZXEsIHJlcykge1xyXG4gIHRyeSB7XHJcbiAgICBjb25zdCBbcm93c10gPSBhd2FpdCBwb29sLnF1ZXJ5KCdTRUxFQ1QgKiBGUk9NIENsaWNrcyBPUkRFUiBCWSBjbGlja0NvdW50IERFU0MnKTtcclxuICAgIHJlcy5zdGF0dXMoMjAwKS5qc29uKHsgZGF0YTogcm93cyB9KTtcclxuICB9IGNhdGNoIChlcnJvcikge1xyXG4gICAgY29uc29sZS5lcnJvcign7YG066atIOuNsOydtO2EsCDsobDtmowg7KSRIOyXkOufrCDrsJzsg506JywgZXJyb3IpO1xyXG4gICAgcmVzLnN0YXR1cyg1MDApLmpzb24oeyBlcnJvcjogJ+2BtOumrSDrjbDsnbTthLAg7KGw7ZqMIOykkSDsl5Drn6wg67Cc7IOdJyB9KTtcclxuICB9XHJcbn1cclxuIl0sIm5hbWVzIjpbInBvb2wiLCJoYW5kbGVyIiwicmVxIiwicmVzIiwicm93cyIsInF1ZXJ5Iiwic3RhdHVzIiwianNvbiIsImRhdGEiLCJlcnJvciIsImNvbnNvbGUiXSwic291cmNlUm9vdCI6IiJ9\n//# sourceURL=webpack-internal:///(api)/./src/pages/api/getClicks.js\n");
-
-/***/ }),
-
-/***/ "(api)/./src/utils/db.js":
-/*!*************************!*\
-  !*** ./src/utils/db.js ***!
-  \*************************/
-/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
-
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var mysql2_promise__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! mysql2/promise */ \"mysql2/promise\");\n\nconst pool = mysql2_promise__WEBPACK_IMPORTED_MODULE_0__.createPool({\n    host: \"localhost\",\n    user: \"root\",\n    password: \"As31882773@@\",\n    database: \"click_database\"\n});\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (pool);\n//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiKGFwaSkvLi9zcmMvdXRpbHMvZGIuanMiLCJtYXBwaW5ncyI6Ijs7Ozs7QUFBbUM7QUFFbkMsTUFBTUMsT0FBT0Qsc0RBQWdCLENBQUM7SUFDNUJHLE1BQU1DLFdBQW1CO0lBQ3pCRyxNQUFNSCxNQUFtQjtJQUN6QkssVUFBVUwsY0FBdUI7SUFDakNPLFVBQVVQLGdCQUFtQjtBQUMvQjtBQUVBLGlFQUFlSCxJQUFJQSxFQUFDIiwic291cmNlcyI6WyJ3ZWJwYWNrOi8vbmV3LXBvcGNhdC8uL3NyYy91dGlscy9kYi5qcz9kMzg0Il0sInNvdXJjZXNDb250ZW50IjpbImltcG9ydCBteXNxbCBmcm9tICdteXNxbDIvcHJvbWlzZSc7XHJcblxyXG5jb25zdCBwb29sID0gbXlzcWwuY3JlYXRlUG9vbCh7XHJcbiAgaG9zdDogcHJvY2Vzcy5lbnYuREJfSE9TVCxcclxuICB1c2VyOiBwcm9jZXNzLmVudi5EQl9VU0VSLFxyXG4gIHBhc3N3b3JkOiBwcm9jZXNzLmVudi5EQl9QQVNTV09SRCxcclxuICBkYXRhYmFzZTogcHJvY2Vzcy5lbnYuREJfTkFNRSxcclxufSk7XHJcblxyXG5leHBvcnQgZGVmYXVsdCBwb29sO1xyXG4iXSwibmFtZXMiOlsibXlzcWwiLCJwb29sIiwiY3JlYXRlUG9vbCIsImhvc3QiLCJwcm9jZXNzIiwiZW52IiwiREJfSE9TVCIsInVzZXIiLCJEQl9VU0VSIiwicGFzc3dvcmQiLCJEQl9QQVNTV09SRCIsImRhdGFiYXNlIiwiREJfTkFNRSJdLCJzb3VyY2VSb290IjoiIn0=\n//# sourceURL=webpack-internal:///(api)/./src/utils/db.js\n");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ handler)\n/* harmony export */ });\nconst pool = require(\"../../utils/db\");\nasync function handler(req, res) {\n    try {\n        const [rows] = await pool.query(\"SELECT * FROM Clicks ORDER BY clickCount DESC\");\n        res.status(200).json({\n            data: rows\n        });\n    } catch (error) {\n        console.error(\"클릭 데이터 조회 중 에러 발생:\", error);\n        res.status(500).json({\n            error: \"클릭 데이터 조회 중 에러 발생\"\n        });\n    }\n}\n//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiKGFwaSkvLi9zcmMvcGFnZXMvYXBpL2dldENsaWNrcy5qcyIsIm1hcHBpbmdzIjoiOzs7O0FBQUEsTUFBTUEsT0FBT0MsUUFBUTtBQUVOLGVBQWVDLFFBQVFDLEdBQUcsRUFBRUMsR0FBRztJQUM1QyxJQUFJO1FBQ0YsTUFBTSxDQUFDQyxLQUFLLEdBQUcsTUFBTUwsS0FBS00sS0FBSyxDQUFDO1FBQ2hDRixJQUFJRyxNQUFNLENBQUMsS0FBS0MsSUFBSSxDQUFDO1lBQUVDLE1BQU1KO1FBQUs7SUFDcEMsRUFBRSxPQUFPSyxPQUFPO1FBQ2RDLFFBQVFELEtBQUssQ0FBQyxzQkFBc0JBO1FBQ3BDTixJQUFJRyxNQUFNLENBQUMsS0FBS0MsSUFBSSxDQUFDO1lBQUVFLE9BQU87UUFBb0I7SUFDcEQ7QUFDRiIsInNvdXJjZXMiOlsid2VicGFjazovL25ldy1wb3BjYXQvLi9zcmMvcGFnZXMvYXBpL2dldENsaWNrcy5qcz81YWY1Il0sInNvdXJjZXNDb250ZW50IjpbImNvbnN0IHBvb2wgPSByZXF1aXJlKCcuLi8uLi91dGlscy9kYicpO1xyXG5cclxuZXhwb3J0IGRlZmF1bHQgYXN5bmMgZnVuY3Rpb24gaGFuZGxlcihyZXEsIHJlcykge1xyXG4gIHRyeSB7XHJcbiAgICBjb25zdCBbcm93c10gPSBhd2FpdCBwb29sLnF1ZXJ5KCdTRUxFQ1QgKiBGUk9NIENsaWNrcyBPUkRFUiBCWSBjbGlja0NvdW50IERFU0MnKTtcclxuICAgIHJlcy5zdGF0dXMoMjAwKS5qc29uKHsgZGF0YTogcm93cyB9KTtcclxuICB9IGNhdGNoIChlcnJvcikge1xyXG4gICAgY29uc29sZS5lcnJvcign7YG066atIOuNsOydtO2EsCDsobDtmowg7KSRIOyXkOufrCDrsJzsg506JywgZXJyb3IpO1xyXG4gICAgcmVzLnN0YXR1cyg1MDApLmpzb24oeyBlcnJvcjogJ+2BtOumrSDrjbDsnbTthLAg7KGw7ZqMIOykkSDsl5Drn6wg67Cc7IOdJyB9KTtcclxuICB9XHJcbn1cclxuIl0sIm5hbWVzIjpbInBvb2wiLCJyZXF1aXJlIiwiaGFuZGxlciIsInJlcSIsInJlcyIsInJvd3MiLCJxdWVyeSIsInN0YXR1cyIsImpzb24iLCJkYXRhIiwiZXJyb3IiLCJjb25zb2xlIl0sInNvdXJjZVJvb3QiOiIifQ==\n//# sourceURL=webpack-internal:///(api)/./src/pages/api/getClicks.js\n");
 
 /***/ })
 

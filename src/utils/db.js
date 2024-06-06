@@ -12,4 +12,4 @@ const pool = mysql.createPool({
   queueLimit: 0,
 });
 
-module.exports = pool;
+module.exports = pool; // pool을 기본 내보내기로 설정

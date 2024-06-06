@@ -1,4 +1,4 @@
-import pool from '../../utils/db';
+const pool = require('../../utils/db');
 
 export default async function handler(req, res) {
   try {

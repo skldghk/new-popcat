@@ -1,4 +1,4 @@
-import pool from './db';
+const pool = require('../../utils/db');
 
 export async function saveClicks(clickData) {
   const clickDataWithDefaults = clickData.map(click => ({
