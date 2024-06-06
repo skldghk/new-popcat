@@ -3,7 +3,6 @@ import pool from '../../utils/db';
 export default async function handler(req, res) {
   if (req.method === 'POST') {
     try {
-      // Clicks 테이블 초기화
       await pool.query('TRUNCATE TABLE Clicks');
       await pool.query(`
         INSERT INTO Clicks (class, clickCount) VALUES
